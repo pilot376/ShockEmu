@@ -213,7 +213,7 @@ static HIDRunner *hid;
 	prep->left_y = (uint8_t) fmin(fmax(128 + leftY * 127, 0), 255);
 	prep->right_x = (uint8_t) fmin(fmax(128 + rightX * 127, 0), 255);
 	prep->right_y = (uint8_t) fmin(fmax(128 + rightY * 127, 0), 255);
-	callback(context, kIOReturnSuccess, self, kIOHIDReportTypeInput, 1, report, 64);
+	callback(context, kIOReturnSuccess, (void *)0xDEADBEEF, kIOHIDReportTypeInput, 0x01, report, 64);
 
 	ticks++;
 }
@@ -258,7 +258,7 @@ static HIDRunner *hid;
 }
 
 - (void)mouseMoved:(NSEvent *)event {
-	NSLog(@"mouseMoved");
+	//NSLog(@"mouseMoved");
 
 	NSPoint mouse = [event locationInWindow];
 	CFAbsoluteTime curtime = CFAbsoluteTimeGetCurrent();
@@ -266,14 +266,13 @@ static HIDRunner *hid;
 	float velY = (mouse.y - hid->lastMouse.y) / (curtime - hid->lastMouseTime);
 	hid->mouseAccelX = (velX - hid->mouseVelX) / (curtime - hid->lastMouseTime);
 	hid->mouseAccelY = (velY - hid->mouseVelY) / (curtime - hid->lastMouseTime);
-	NSLog(@"vel %f %f", velX, velY);
-	NSLog(@"accel %f %f", hid->mouseAccelX, hid->mouseAccelY);
 	hid->mouseVelX = velX;
 	hid->mouseVelY = velY;
 	hid->lastMouseTime = curtime;
 	hid->lastMouse = mouse;
 	hid->mouseMoved = true;
-
+	//NSLog(@"vel %f %f", velX, velY);
+	
 	[hid kick];
 	[hid decayKick];
 }

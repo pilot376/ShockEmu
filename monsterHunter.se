@@ -4,29 +4,32 @@ a = leftX-
 s = leftY+
 d = leftX+
 
-i = triangle
-k = O
-m = X
+k = triangle
+l = O
+space = X
 j = square
-u = R1
-o = R2
+colon= R1
+i = R2
+o = R3
 e = L1
 q = L2
-
+r = L3
 up = dpadUp
 left = dpadLeft
 right = dpadRight
 down = dpadDown
 
-p = PS
-t = touchpad
+0 = PS
+z = touchpad
 n = options
-b = share
+x = share
 
+t = rightY-
+g = rightY+
+f = rightX-
+h = rightX+
 
-# Map mouse to the right stick
 mouseLook.type = linear # 1:1 translation mode, no curve
 mouseLook.stick = right
-mouseLook.multY = -1 # Flips the Y axis for mouseLook
 mouseLook.deadZone = .05 # Sets the dead zone for the joystick
-mouseLook.decay = 5 # What the joystick movement is divided by at each tick (probably does very little)
+mouseLook.decay = 1.2 # What the joystick movement is divided by at each tick (probably does very little)

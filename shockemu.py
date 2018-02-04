@@ -17,7 +17,8 @@ keys = dict(
 	backtick=50, 
 	comma=43, period=47, slash=44, backslash=42, 
 	delete=51, 
-	escape=53, 
+	escape=53,
+	colon=41,
 )
 
 buttons = 'dpadUp dpadLeft dpadRight dpadDown X O square triangle PS touchpad options share L1 L2 L3 R1 R2 R3'.split(' ')
@@ -61,8 +62,8 @@ with file('mapKeys.h', 'w') as fp:
 		if mouseLook['type'] == 'linear':
 			print >>fp, \
 '''if(mouseMoved) {{
-	{stick}X = -mouseAccelX;
-	{stick}Y = mouseAccelY;
+	{stick}X += mouseVelX * 1000;
+	{stick}Y -= mouseVelY * 1000;
 	mouseMoved = false;
 }} else {{
 	{stick}X /= {decay};
