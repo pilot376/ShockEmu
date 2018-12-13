@@ -1,35 +1,43 @@
 # Map movement controls to the left stick
-i = leftY-
-j = leftX-
-k = leftY+
-l = leftX+
 
-q = triangle
+
+i = dpadUp
+j = dpadLeft
+l = dpadRight
+k = dpadDown
+
+
+w = triangle
 a = O
 s = X
 d = square
 
-1 = R1
-2 = R2
-3 = R3
-4 = L1
-5 = L2
-6 = L3
 
-up = dpadUp
-left = dpadLeft
-right = dpadRight
-down = dpadDown
+up = leftY-
+left = leftX-
+down = leftY+
+right = leftX+
 
-z = PS
-x = touchpad
-c = options
-v = share
+
+e = R1
+c = R2
+1 = R3
+q = L1
+z = L2
+2 = L3
+
+
+v = PS
+b = touchpad
+space = options
+n = share
+
 
 t = rightY-
 g = rightY+
 f = rightX-
 h = rightX+
+
 
 mouseLook.type = linear # 1:1 translation mode, no curve
 mouseLook.stick = right
